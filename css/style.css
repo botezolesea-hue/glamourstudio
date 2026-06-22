@@ -281,5 +281,88 @@ footer{
 .counter-number{
     font-size:2rem;
 }
+/* ================= BOOKING ================= */
 
+#bookingForm .card{
+    border:none;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+#bookingForm .card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(233,30,140,.15);
+}
+
+#bookingForm h4{
+    color:var(--primary) !important;
+    margin-bottom:25px;
+}
+
+#bookingForm h5{
+    font-size:1.1rem;
+    font-weight:700;
+}
+
+#bookingForm .card-body{
+    padding:1.5rem;
+}
+
+#bookingForm .form-check{
+    margin-bottom:12px;
+}
+
+#bookingForm .form-check-input{
+    cursor:pointer;
+}
+
+#bookingForm .form-check-input:checked{
+    background-color:var(--primary);
+    border-color:var(--primary);
+}
+
+#bookingForm .form-check-label{
+    cursor:pointer;
+    transition:.3s;
+}
+
+#bookingForm .form-check:hover .form-check-label{
+    color:var(--primary);
+}
+
+#bookingForm .form-control{
+    border-radius:12px;
+}
+
+#bookingForm .btn-dark{
+    background:var(--primary);
+    border:none;
+    border-radius:12px;
+    transition:.3s;
+}
+
+#bookingForm .btn-dark:hover{
+    background:#c21872;
+}
+
+#price{
+    color:#ffc107;
+}
+
+.bg-pink{
+    background:var(--primary) !important;
+}
+
+.tracking-wide{
+    letter-spacing:1px;
+}
+
+@media(max-width:768px){
+
+    #bookingForm .card-body{
+        padding:1rem;
+    }
+
+}
 }

@@ -1,256 +1,215 @@
 <!DOCTYPE html>
 <html lang="ro">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Programare | Glamour Studio</title>
 
-  <!-- Bootstrap 5.3.3 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Icons (pentru un plus de stil) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="css/style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programare | Glamour Studio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="bg-light">
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-pink fixed-top bg-pink  shadow-sm">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="./img/logo.png" alt="Logo Glamour Studio" class="logo me-2" style="height: 40px;">
-        <span>Glamour Studio</span>
-      </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Acasă</a></li>
-          <li class="nav-item"><a class="nav-link" href="services.html">Servicii</a></li>
-          <li class="nav-item"><a class="nav-link" href="team.html">Echipa</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallery.html">Galerie</a></li>
-          <li class="nav-item"><a class="nav-link active" href="booking.html">Programare</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Booking Section -->
-  <div class="container my-5 pt-5">
-    
-    <!-- Header Pagina -->
-    <div class="text-center my-5">
-      <h1 class="fw-bold text-uppercase tracking-wide">Programare Online</h1>
-      <p class="text-muted">Alege serviciul dorit și rezervă-ți locul în doar câteva secunde.</p>
-      <div class="mx-auto bg-dark" style="width: 60px; height: 3px;"></div>
-    </div>
-
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Coloana Formular -->
-      <div class="col-lg-7">
-        <div class="card border-0 shadow-sm p-4 p-md-5 bg-white rounded-4">
-          <form id="bookingForm">
-            
-            <h4 class="mb-4 text-secondary fw-semibold"><i class="bi bi-person me-2"></i>Date Personale</h4>
-            
-            <div class="row g-3 mb-4">
-              <div class="col-md-6">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="name" placeholder="Numele tău" required>
-                  <label for="name">Nume complet</label>
-                </div>
-              </div>
-              
-              <div class="col-md-6">
-                <div class="form-floating">
-                  <input type="tel" class="form-control" id="phone" placeholder="07xx xxx xxx" required>
-                  <label for="phone">Număr de telefon</label>
-                </div>
-              </div>
-
-              <div class="col-12">
-                <div class="form-floating">
-                  <input type="email" class="form-control" id="email" placeholder="nume@exemplu.com">
-                  <label for="email">Adresă de email (Opțional)</label>
-                </div>
-              </div>
-            </div>
-
-            <h4 class="mb-4 text-secondary fw-semibold"><i class="bi bi-calendar-heart me-2"></i>Detalii Programare</h4>
-
-            <div class="col-12">
-    <label class="form-label fw-semibold mb-3">
-        Servicii solicitate
-    </label>
-
-    <div class="row">
-
-        <div class="col-md-6">
-
-            <div class="form-check mb-2">
-                <input class="form-check-input service-checkbox" type="checkbox"
-                    value="200" data-name="Coafură" id="coafura">
-                <label class="form-check-label" for="coafura">
-                    Coafură — 200 lei
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input service-checkbox" type="checkbox"
-                    value="350" data-name="Vopsire păr" id="vopsire">
-                <label class="form-check-label" for="vopsire">
-                    Vopsire păr — 350 lei
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input service-checkbox" type="checkbox"
-                    value="250" data-name="Coafat de seară" id="coafat">
-                <label class="form-check-label" for="coafat">
-                    Coafat de seară — 250 lei
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input service-checkbox" type="checkbox"
-                    value="300" data-name="Tratament păr" id="tratamentPar">
-                <label class="form-check-label" for="tratamentPar">
-                    Tratament păr — 300 lei
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input service-checkbox" type="checkbox"
-                    value="150" data-name="Manichiură" id="manichiura">
-                <label class="form-check-label" for="manichiura">
-                    Manichiură — 150 lei
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input service-checkbox" type="checkbox"
-                    value="180" data-name="Pedichiură" id="pedichiura">
-                <label class="form-check-label" for="pedichiura">
-                    Pedichiură — 180 lei
-                </label>
-            </div>
-
-        </div>
-
-        <div class="col-md-6">
-
-            <div class="form-check mb-2">
-                <input class="form-check-input service-checkbox" type="checkbox"
-                    value="250" data-name="Machiaj profesional" id="machiaj">
-                <label class="form-check-label" for="machiaj">
-                    Machiaj profesional — 250 lei
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input service-checkbox" type="checkbox"
-                    value="300" data-name="Extensii de gene" id="gene">
-                <label class="form-check-label" for="gene">
-                    Extensii de gene — 300 lei
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input service-checkbox" type="checkbox"
-                    value="200" data-name="Laminare gene" id="laminareGene">
-                <label class="form-check-label" for="laminareGene">
-                    Laminare gene — 200 lei
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input service-checkbox" type="checkbox"
-                    value="100" data-name="Pensat și stilizare sprâncene" id="sprancene">
-                <label class="form-check-label" for="sprancene">
-                    Pensat și stilizare sprâncene — 100 lei
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input service-checkbox" type="checkbox"
-                    value="250" data-name="Epilare completă" id="epilare">
-                <label class="form-check-label" for="epilare">
-                    Epilare completă — 250 lei
-                </label>
-            </div>
-
-            <div class="form-check mb-2">
-                <input class="form-check-input service-checkbox" type="checkbox"
-                    value="220" data-name="Tratament facial" id="tratamentFacial">
-                <label class="form-check-label" for="tratamentFacial">
-                    Tratament facial — 220 lei
-                </label>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-              <div class="col-md-6">
-                <div class="form-floating">
-                  <input type="date" class="form-control" id="date" required>
-                  <label for="date">Data</label>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="form-floating">
-                  <input type="time" class="form-control" id="time" required>
-                  <label for="time">Ora dorită</label>
-                </div>
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn-dark btn-lg w-100 rounded-3 shadow-sm py-3 fw-bold tracking-wide">
-              CONFIRMĂ PROGRAMAREA
+    <nav class="navbar navbar-expand-lg bg-pink fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="./img/logo.png" alt="Logo Glamour Studio" class="logo me-2">
+                <span>Glamour Studio</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
-
-          </form>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Acasă</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Servicii</a></li>
+                    <li class="nav-item"><a class="nav-link" href="team.html">Echipa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Galerie</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="booking.html">Programare</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
+    </nav>
 
-      <!-- Coloana Info & Pret -->
-      <div class="col-lg-4">
-        <div class="card bg-dark text-white border-0 shadow-sm p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
-          
-          <div>
-            <h4 class="fw-bold mb-3">Glamour Experience</h4>
-            <p class="text-white-50 small">Te rugăm să te prezinți cu 5-10 minute înainte de ora stabilită. Dacă intervine ceva, ne poți contacta telefonic pentru anulare sau reprogramare.</p>
-            
-            <hr class="text-white-50 my-4">
-            
-            <ul class="list-unstyled space-y-3 small text-white-50">
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Confirmare rapidă pe SMS/Email</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Atmosferă relaxantă și cafea premium</li>
-              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Specialiști cu experiență</li>
-            </ul>
-          </div>
+    <div class="container my-5 pt-5">
 
-          <!-- Widget de Pret Elegant -->
-          <div class="bg-secondary bg-opacity-25 p-4 rounded-3 border border-secondary text-center mt-4">
-            <span class="text-uppercase text-white-50 small fw-bold tracking-wide d-block mb-1">Total de plată (estimat)</span>
-            <h2 class="display-5 fw-bold text-warning mb-0"><span id="price">0</span> <span class="fs-4">lei</span></h2>
-          </div>
-
+        <div class="text-center my-5">
+            <h1 class="fw-bold text-uppercase">Programare Online</h1>
+            <p class="text-muted">Alege serviciile dorite și rezervă-ți locul în doar câteva secunde.</p>
+            <div class="mx-auto bg-dark" style="width:70px;height:3px;"></div>
         </div>
-      </div>
 
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-7">
+                <div class="card border-0 shadow p-4 p-md-5 rounded-4">
+                    
+                    <form id="bookingForm">
+
+                        <h4 class="mb-4 text-secondary">
+                            <i class="bi bi-person me-2"></i> Date Personale
+                        </h4>
+
+                        <div class="row g-3 mb-5">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Nume" required>
+                                    <label for="name">Nume complet</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="tel" class="form-control" id="phone" placeholder="Telefon" required>
+                                    <label for="phone">Număr de telefon</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                    <label for="email">Adresă de email (Opțional)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="mb-4 text-secondary">
+                            <i class="bi bi-calendar-heart me-2"></i> Servicii Dorite
+                        </h4>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="card service-category h-100 shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="text-danger mb-3"><i class="bi bi-scissors"></i> Coafură</h5>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input service-checkbox" type="checkbox" value="200" data-name="Coafură" id="coafura">
+                                            <label class="form-check-label" for="coafura">Coafură — 200 lei</label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input service-checkbox" type="checkbox" value="350" data-name="Vopsire păr" id="vopsire">
+                                            <label class="form-check-label" for="vopsire">Vopsire păr — 350 lei</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input service-checkbox" type="checkbox" value="300" data-name="Tratament păr" id="tratamentPar">
+                                            <label class="form-check-label" for="tratamentPar">Tratament păr — 300 lei</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card service-category h-100 shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="text-primary mb-3"><i class="bi bi-stars"></i> Manichiură și Pedichiură</h5>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input service-checkbox" type="checkbox" value="150" data-name="Manichiură" id="manichiura">
+                                            <label class="form-check-label" for="manichiura">Manichiură — 150 lei</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input service-checkbox" type="checkbox" value="180" data-name="Pedichiură" id="pedichiura">
+                                            <label class="form-check-label" for="pedichiura">Pedichiură — 180 lei</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card service-category h-100 shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="text-success mb-3"><i class="bi bi-eye"></i> Gene și Sprâncene</h5>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input service-checkbox" type="checkbox" value="300" data-name="Extensii de gene" id="gene">
+                                            <label class="form-check-label" for="gene">Extensii de gene — 300 lei</label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input service-checkbox" type="checkbox" value="200" data-name="Laminare gene" id="laminareGene">
+                                            <label class="form-check-label" for="laminareGene">Laminare gene — 200 lei</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input service-checkbox" type="checkbox" value="100" data-name="Pensat și stilizare sprâncene" id="sprancene">
+                                            <label class="form-check-label" for="sprancene">Pensat și stilizare sprâncene — 100 lei</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card service-category h-100 shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="text-warning mb-3"><i class="bi bi-heart"></i> Alte Servicii</h5>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input service-checkbox" type="checkbox" value="250" data-name="Machiaj profesional" id="machiaj">
+                                            <label class="form-check-label" for="machiaj">Machiaj profesional — 250 lei</label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input service-checkbox" type="checkbox" value="250" data-name="Epilare completă" id="epilare">
+                                            <label class="form-check-label" for="epilare">Epilare completă — 250 lei</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input service-checkbox" type="checkbox" value="220" data-name="Tratament facial" id="tratamentFacial">
+                                            <label class="form-check-label" for="tratamentFacial">Tratament facial — 220 lei</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="booking-time mt-5 p-3 bg-light rounded-3 shadow-sm border">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="date" class="form-label fw-bold text-secondary">Data programării:</label>
+                                    <input type="date" id="date" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="time" class="form-label fw-bold text-secondary">Ora programării:</label>
+                                    <input type="time" id="time" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive mt-4">
+                            <table class="table table-bordered align-middle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Serviciu</th>
+                                        <th>Glamour Experience</th>
+                                        <th>Preț</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="services-list">
+                                    <tr>
+                                        <td colspan="3" class="text-muted text-center">Niciun serviciu selectat</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="table-light">
+                                        <td colspan="2" class="fw-bold text-end">Total:</td>
+                                        <td id="total-price" class="fw-bold text-primary">0 MDL</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" id="confirmBtn" class="btn btn-primary btn-lg w-100 shadow-sm fw-bold">
+                                Confirmă programarea
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/main.js"></script>
 </body>
+
 </html>

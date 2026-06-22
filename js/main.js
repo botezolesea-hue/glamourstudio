@@ -1,190 +1,100 @@
-document.addEventListener("DOMContentLoaded", () => {
+// Funcție care calculează prețul în timp real și modifică tabelul din pagină
+function actualizeazaTabelSiTotal() {
+    const listaServiciiElement = document.getElementById("services-list");
+    const pretTotalElement = document.getElementById("total-price");
+    
+    let total = 0;
+    let HTMLRanduri = "";
 
-    console.log("main.js s-a încărcat");
+    // Colectăm toate checkbox-urile active
+    document.querySelectorAll(".service-checkbox:checked").forEach(checkbox => {
+        const numeServiciu = checkbox.getAttribute("data-name");
+        const pretServiciu = parseFloat(checkbox.value) || 0;
 
-    // === 1. ANIMAȚIE NUMERE ===
-    const counters = document.querySelectorAll(".counter-number");
+        total += pretServiciu;
 
-    const startCounters = () => {
-        counters.forEach(counter => {
+        HTMLRanduri += `
+            <tr>
+                <td>${numeServiciu}</td>
+                <td class="text-muted">Glamour Experience</td>
+                <td class="fw-bold">${pretServiciu} MDL</td>
+            </tr>
+        `;
+    });
 
-            if (counter.classList.contains("started")) return;
-
-            counter.classList.add("started");
-
-            const updateCounter = () => {
-                const target = Number(counter.getAttribute("data-target"));
-                const count = Number(counter.innerText);
-                const increment = target / 100;
-
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(updateCounter, 20);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-
-            updateCounter();
-        });
-    };
-
-    const section = document.querySelector(".counter");
-
-    if (section) {
-        window.addEventListener("scroll", () => {
-            const top = section.getBoundingClientRect().top;
-
-            if (top < window.innerHeight - 100) {
-                startCounters();
-            }
-        });
+    // Afișăm un placeholder vizual dacă nu s-a selectat nimic
+    if (HTMLRanduri === "") {
+        HTMLRanduri = `<tr><td colspan="3" class="text-muted text-center">Niciun serviciu selectat</td></tr>`;
     }
 
+    listaServiciiElement.innerHTML = HTMLRanduri;
+    pretTotalElement.innerHTML = `<strong>${total} MDL</strong>`;
 
-    // === 2. FORMULAR PROGRAMARE ===
-    const bookingForm = document.getElementById("bookingForm");
-    const serviceSelect = document.getElementById("service");
-    const priceSpan = document.getElementById("price");
+    return total;
+}
 
-    if (serviceSelect && priceSpan) {
-
-        const updatePriceOnScreen = () => {
-            priceSpan.innerText = serviceSelect.value || "0";
-        };
-
-        serviceSelect.addEventListener("change", updatePriceOnScreen);
-        updatePriceOnScreen();
-    }
-
-    if (bookingForm) {
-
-        bookingForm.addEventListener("submit", (e) => {
-
-            e.preventDefault();
-
-            console.log("Buton apăsat");
-
-            const selectedOption =
-                serviceSelect.options[serviceSelect.selectedIndex];
-
-            const formData = {
-                nume: document.getElementById("name").value,
-                telefon: document.getElementById("phone").value,
-                email: document.getElementById("email").value,
-                serviciu: selectedOption.text,
-                data: document.getElementById("date").value,
-                ora: document.getElementById("time").value
-            };
-
-            console.log(formData);
-
-            fetch("api/addProgramare.php", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.text())
-            .then(result => {
-
-                console.log("Răspuns PHP:", result);
-
-                let data;
-
-                try {
-                    data = JSON.parse(result);
-                }
-                catch (err) {
-                    alert("PHP nu a returnat JSON valid.");
-                    console.error(result);
-                    return;
-                }
-
-                if (data.success) {
-
-                    alert("Programarea a fost înregistrată cu succes!");
-
-                    bookingForm.reset();
-
-                    if (priceSpan) {
-                        priceSpan.innerText = "0";
-                    }
-
-                } else {
-
-                    alert("Eroare: " + data.error);
-
-                }
-
-            })
-            .catch(error => {
-
-                console.error(error);
-
-                alert("Eroare la conectarea cu serverul.");
-
-            });
-
-        });
-
-    }
-
-
-    // === 3. FILTRARE SERVICII ===
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const serviceItems = document.querySelectorAll(".service-item");
-
-    if (filterButtons.length > 0 && serviceItems.length > 0) {
-
-        filterButtons.forEach(button => {
-
-            button.addEventListener("click", () => {
-
-                const filterValue = button.getAttribute("data-filter");
-
-                serviceItems.forEach(item => {
-
-                    if (
-                        filterValue === "all" ||
-                        item.classList.contains(filterValue)
-                    ) {
-                        item.style.display = "block";
-                    } else {
-                        item.style.display = "none";
-                    }
-
-                });
-
-            });
-
-        });
-
-    }
-
+// Adăugăm eveniment de tip "change" pe fiecare căsuță pentru actualizare dinamică
+document.querySelectorAll(".service-checkbox").forEach(checkbox => {
+    checkbox.addEventListener("change", actualizeazaTabelSiTotal);
 });
 
+// Evenimentul principal de trimitere a formularului (Submit)
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Oprim reîncărcarea nativă a paginii
 
-// === LIGHTBOX ===
+    let nume = document.getElementById("name").value;
+    let telefon = document.getElementById("phone").value;
+    let email = document.getElementById("email").value;
+    let data = document.getElementById("date").value;
+    let ora = document.getElementById("time").value;
 
-function openImg(element) {
+    // Colectăm numele serviciilor selectate pentru a fi trimise ca array
+    let serviciiSelectate = [];
+    document.querySelectorAll(".service-checkbox:checked").forEach(checkbox => {
+        serviciiSelectate.push(checkbox.getAttribute("data-name"));
+    });
 
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightboxImg");
+    let pretTotal = actualizeazaTabelSiTotal();
 
-    if (lightbox && lightboxImg) {
-        lightboxImg.src = element.src;
-        lightbox.style.display = "flex";
+    // Verificare împotriva trimiterilor fără servicii bifate
+    if (serviciiSelectate.length === 0) {
+        alert("Te rugăm să bifezi cel puțin un serviciu din cele de mai sus!");
+        return;
     }
 
-}
-
-function closeImg() {
-
-    const lightbox = document.getElementById("lightbox");
-
-    if (lightbox) {
-        lightbox.style.display = "none";
-    }
-}
+    // Expedierea datelor prin Fetch API
+    fetch("api/programari.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            nume: nume,
+            telefon: telefon,
+            email: email,
+            servicii: serviciiSelectate,
+            data: data,
+            ora: ora,
+            pret: pretTotal
+        })
+    })
+    .then(res => {
+        if (!res.ok) {
+            throw new Error("Răspuns server invalid HTTP");
+        }
+        return res.json();
+    })
+    .then(data => {
+        if (data.success) {
+            alert("Programarea a fost salvată cu succes!");
+            document.getElementById("bookingForm").reset(); // Curățăm câmpurile text/date
+            actualizeazaTabelSiTotal(); // Resetăm tabelul vizual înapoi la 0 MDL
+        } else {
+            alert("Eroare la salvare: " + (data.error || "Eroare necunoscută."));
+        }
+    })
+    .catch(err => {
+        console.error("Eroare fetch:", err);
+        alert("A apărut o problemă la comunicarea cu serverul.");
+    });
+});

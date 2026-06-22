@@ -1,38 +1,11 @@
 [
     {
-        "nume": "Olesea Botez",
+        "nume": "lunca daniel",
         "telefon": "06325145",
-        "email": "botez.olesea@elev.cihcahul.md",
-        "serviciu": "Manichiură — 150 lei",
-        "data": "2026-06-27",
-        "ora": "09:43",
-        "creat_la": "2026-06-19 08:39:56"
-    },
-    {
-        "nume": "Dudus Bianca",
-        "telefon": "079865434",
         "email": "",
-        "serviciu": "Manichiură — 150 lei",
-        "data": "2026-06-26",
-        "ora": "09:48",
-        "creat_la": "2026-06-19 08:45:15"
-    },
-    {
-        "nume": "balabanbogdan",
-        "telefon": "1234567",
-        "email": "",
-        "serviciu": "Machiaj — 250 lei",
-        "data": "2026-06-12",
-        "ora": "14:24",
-        "creat_la": "2026-06-19 09:24:56"
-    },
-    {
-        "nume": "Cozma Petru",
-        "telefon": "09876543",
-        "email": "",
-        "serviciu": "Manichiură — 150 lei",
-        "data": "2026-06-21",
-        "ora": "16:10",
-        "creat_la": "2026-06-19 10:06:07"
+        "serviciu": null,
+        "data": "2026-06-17",
+        "ora": "14:31",
+        "creat_la": "2026-06-22 11:28:01"
     }
 ]
