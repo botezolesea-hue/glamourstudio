@@ -95,3 +95,60 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
         alert("A apărut o problemă la comunicarea cu serverul.");
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+
+    const counters = document.querySelectorAll(".counter-number");
+    const counterSection = document.querySelector(".counter");
+
+    if (!counterSection || counters.length === 0) return;
+
+    const animateCounters = () => {
+
+        counters.forEach(counter => {
+
+            const target = parseInt(counter.dataset.target);
+            const duration = 2000;
+            const increment = target / (duration / 16);
+
+            let current = 0;
+
+            const updateCounter = () => {
+
+                current += increment;
+
+                if (current < target) {
+                    counter.innerText = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.innerText = target;
+                }
+
+            };
+
+            updateCounter();
+
+        });
+
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                animateCounters();
+
+                observer.unobserve(counterSection);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.3
+    });
+
+    observer.observe(counterSection);
+
+});
