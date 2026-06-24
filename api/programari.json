@@ -25,5 +25,65 @@
         "data": "2026-06-18",
         "ora": "08:40",
         "creat_la": "2026-06-24 07:38:11"
+    },
+    {
+        "nume": "botez olesea",
+        "telefon": "06325145",
+        "email": "",
+        "serviciu": null,
+        "data": "2026-06-25",
+        "ora": "12:48",
+        "creat_la": "2026-06-24 07:44:23"
+    },
+    {
+        "nume": "botez olesea",
+        "telefon": "06325145",
+        "email": "",
+        "serviciu": null,
+        "data": "2026-06-25",
+        "ora": "12:48",
+        "creat_la": "2026-06-24 07:45:11"
+    },
+    {
+        "nume": "ghnjs",
+        "telefon": "smngntd",
+        "email": "",
+        "serviciu": [
+            "Vopsire păr",
+            "Pedichiură",
+            "Extensii de gene",
+            "Tratament facial"
+        ],
+        "data": "2026-06-20",
+        "ora": "11:49",
+        "creat_la": "2026-06-24 07:49:57"
+    },
+    {
+        "nume": "Olesea Botez",
+        "telefon": "06325145",
+        "email": "botez.olesea@elev.cihcahul.md",
+        "servicii": [
+            "Coafură",
+            "Manichiură",
+            "Extensii de gene",
+            "Machiaj profesional"
+        ],
+        "data": "2026-06-11",
+        "ora": "10:52",
+        "creat_la": "2026-06-24 07:53:07"
+    },
+    {
+        "nume": "Olesea Botez",
+        "telefon": "09876543",
+        "email": "botez.olesea@elev.cihcahul.md",
+        "servicii": [
+            "Vopsire păr",
+            "Pedichiură",
+            "Extensii de gene",
+            "Epilare completă"
+        ],
+        "data": "2026-06-11",
+        "ora": "08:59",
+        "creat_la": "2026-06-24 07:57:36"
     }
 ]
